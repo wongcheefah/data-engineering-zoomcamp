@@ -1,0 +1,4 @@
+{"operation": "create", "resource": {"type": "pipeline", "uuid": "fancy_phoenix"}, "timestamp": 1707117829, "user": null}
+{"operation": "create", "resource": {"type": "pipeline", "uuid": "joyous_rune"}, "timestamp": 1707117979, "user": null}
+{"operation": "create", "resource": {"type": "pipeline", "uuid": "masterful_pond"}, "timestamp": 1707123757, "user": null}
+{"operation": "create", "resource": {"type": "pipeline", "uuid": "api_to_postgres_copy"}, "timestamp": 1707130567, "user": null}
