@@ -232,7 +232,8 @@ SELECT
 FROM
   pristine-sphere-412713.ny_taxi.green_tripdata_nonpartitioned
 WHERE
-  DATE(lpep_pickup_datetime) BETWEEN '2022-06-01' AND '2022-06-30';
+  DATETIME(lpep_pickup_datetime) BETWEEN DATETIME('2022-06-01 00:00:00', 'UTC')
+  AND DATETIME('2022-06-30 23:59:59', 'UTC');
 ```
 ```
 SELECT
@@ -245,7 +246,7 @@ WHERE
     UNIX_MICROS(CAST('2022-06-01 00:00:00' AS TIMESTAMP)) * 1000 )
   AND (
   SELECT
-    UNIX_MICROS(CAST('2022-06-30 00:00:00' AS TIMESTAMP)) * 1000 );
+    UNIX_MICROS(CAST('2022-06-30 23:59:59' AS TIMESTAMP)) * 1000 );
 ```
 
 Ans: 12.82 MB for non-partitioned table and 1.12 MB for the partitioned table
