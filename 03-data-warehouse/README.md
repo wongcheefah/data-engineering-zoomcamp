@@ -2,22 +2,19 @@
 
 <b><u>Important Note:</b></u> <p> For this homework we will be using the 2022 Green Taxi Trip Record Parquet Files from the New York
 City Taxi Data found here: </br> https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page </br>
-If you are using orchestration such as Mage, Airflow or Prefect do not load the data into Big Query using the orchestrator.</br> 
-Stop with loading the files into a bucket. </br></br>
-<u>NOTE:</u> You will need to use the PARQUET option files when creating an External Table</br>
 
-<b>Loading taxi trip data onto GCS using Mage:</b>
+<b>Load taxi trip data onto GCS using Mage:</b>
 
-Create dataset in BigQuery.
+Create dataset `ny_taxi` in BigQuery.
 ```
 bq --location=asia-southeast1 mk -d pristine-sphere-412713:ny_taxi
 ```
 
-Start Mage from [02-orchestration-mage](../02-orchestration-mage/) and create a new batch pipeline. 
-<i>(Copy of loader and exporter scripts and metadata YAML downloaded into data_loaders, data_exporters and pipelines directories)</i>
-- Set global variables `fleet` and  `year`
-  - fleet : 'green'
-  - year : 2022
+Start Mage from [02-orchestration-mage](../02-orchestration-mage/) and create a new batch pipeline.</br>
+<i>(For reference, copy of loader and exporter scripts and metadata YAML have been downloaded into data_loaders, data_exporters and pipelines directories respectively)</i>
+- Set global variables `fleet` and  `year` for the new pipeline
+  - `fleet` : `green`
+  - `year` : `2022`
 
 - Add a data loader (Data loader > Python > API)
 ```
@@ -89,7 +86,7 @@ def export_data_to_google_cloud_storage(df: DataFrame, **kwargs) -> None:
     )
 ```
 
-No change to `io_config.yaml` and GCS bucket name from module 2. Create 
+No change to `io_config.yaml` and GCS bucket name from module 2.
 
 <b>SETUP:</b></br>
 Create an external table using the Green Taxi Trip Records Data for 2022. </br>
@@ -133,7 +130,7 @@ FROM
 </p>
 
 ## Question 1:
-Question 1: What is count of records for the 2022 Green Taxi Data??
+Question 1: What is count of records for the 2022 Green Taxi Data?
 - 65,623,481
 - 840,402
 - 1,936,423
